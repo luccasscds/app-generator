@@ -1,0 +1,67 @@
+{
+  "name": "app-generator",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "author": {
+    "name": "Lucas Silva",
+    "url": "https://github.com/luccasscds"
+  },
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite --port 8080",
+    "start": "vite --port 8080",
+    "build": "vite build && tsc",
+    "build:lib": "vite build --mode lib",
+    "serve": "vite preview",
+    "test": "vitest run",
+    "prepare": "husky"
+  },
+  "peerDependencies": {
+    "@tanstack/react-router": "^1.121.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "dependencies": {
+    "@tanstack/react-router": "^1.121.2",
+    "@tanstack/react-router-devtools": "^1.121.2",
+    "@tanstack/router-plugin": "^1.121.2",
+    "dayjs": "^1.11.15",
+    "lodash": "^4.17.21",
+    "primeicons": "^7.0.0",
+    "primereact": "^10.9.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zod": "^4.1.0"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.8.0",
+    "@testing-library/react": "^16.2.0",
+    "@testing-library/user-event": "^14.6.1",
+    "@types/lodash": "^4.17.20",
+    "@types/node": "^24.2.1",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
+    "@vitejs/plugin-react": "^4.3.4",
+    "husky": "^9.1.7",
+    "jsdom": "^26.0.0",
+    "typescript": "^5.7.2",
+    "vite": "^6.1.0",
+    "vite-plugin-dts": "^4.5.4",
+    "vitest": "^3.0.5",
+    "web-vitals": "^4.2.4"
+  }
+}

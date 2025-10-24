@@ -1,0 +1,60 @@
+/* Typography Components Styles */
+
+/* Link hover effects */
+.typography-link {
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.typography-link:hover {
+  opacity: 0.8;
+}
+
+.typography-link.hover-underline:hover {
+  text-decoration: underline;
+}
+
+/* Code block syntax highlighting support */
+pre code[data-language] {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  white-space: pre;
+  overflow-wrap: normal;
+}
+
+/* Responsive typography adjustments */
+@media (max-width: 768px) {
+  .typography-responsive-text {
+    font-size: 0.9rem;
+  }
+  
+  .typography-responsive-heading {
+    font-size: 1.5rem;
+  }
+}
+
+/* Focus states for accessibility */
+.typography-link:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .typography-link {
+    text-decoration: underline;
+  }
+}
+
+/* Print styles */
+@media print {
+  .typography-link {
+    text-decoration: underline;
+    color: black !important;
+  }
+  
+  .typography-link[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}
