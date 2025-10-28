@@ -6,12 +6,21 @@ on:
   pull_request:
     branches: [ "master" ]
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout do código
         uses: actions/checkout@v4
+        with:
+          # Usar o token com permissões de escrita
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0  # Necessário para o semantic-release
       
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -26,3 +35,5 @@ jobs:
       
       - name: Build do projeto
         run: npm run build:lib
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
