@@ -29,7 +29,6 @@
     "test": "vitest run",
     "prepare": "husky",
     "release": "semantic-release --no-ci",
-    "release:ci": "semantic-release",
     "release:dry": "semantic-release --dry-run"
   },
   "peerDependencies": {
