@@ -1,13 +1,10 @@
 export { DataTable } from './DataTable/DataTable';
 export { DataView } from './DataView/DataView';
-export { MenuBar } from './MenuBar/MenuBar';
-export { Input } from './Input/Input';
 export { Button } from './Button/Button';
 export { Calendar } from './Calendar/Calendar';
 export { Dropdown } from './Dropdown/Dropdown';
 export { Checkbox } from './Checkbox/Checkbox';
 export { InputSwitch } from './InputSwitch/InputSwitch';
-export { InputTextarea } from './InputTextarea/InputTextarea';
 export { RadioButton } from './RadioButton/RadioButton';
 
 export { Card } from 'primereact/card';
@@ -24,7 +21,20 @@ export { ProgressSpinner } from 'primereact/progressspinner';
 export { Tag } from 'primereact/tag';
 export { SelectButton } from 'primereact/selectbutton';
 export { Toast } from 'primereact/toast';
-        
+export { Sidebar } from 'primereact/sidebar';
+export { Toolbar } from 'primereact/toolbar';
+export { Menu } from 'primereact/menu';
+export { ThemeSelector } from './ThemeSelector/ThemeSelector';
+export { InputTextarea } from "primereact/inputtextarea";
+export { InputText } from 'primereact/inputtext';
+export { InputNumber } from 'primereact/inputnumber';
+export { InputIcon } from 'primereact/inputicon';
+export { InputMask } from 'primereact/inputmask';
+export { InputOtp } from 'primereact/inputotp';
+export { Password } from 'primereact/password';
+export { Accordion, AccordionTab } from 'primereact/accordion';
+export { BreadCrumb } from 'primereact/breadcrumb';
+export { Image } from 'primereact/image';
 
 // Typography components
 export * from './Typography';

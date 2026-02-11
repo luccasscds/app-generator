@@ -5,9 +5,34 @@ import { pt } from "zod/locales"
 
 export const config = {
     init() {
+        config.initTheme();
         // config.localeMoment();
         config.localePrimeReact();
         config.zod();
+    },
+    setTheme(themeName: string = 'arya-blue') {
+        // Remove existing theme CSS if present
+        const existingThemeLink = document.querySelector('link[data-theme]');
+        if (existingThemeLink) {
+            existingThemeLink.remove();
+        }
+        
+        // Add new theme CSS
+        const themeLink = document.createElement('link');
+        themeLink.rel = 'stylesheet';
+        themeLink.href = `https://cdn.jsdelivr.net/npm/primereact@10/resources/themes/${themeName}/theme.css`;
+        themeLink.setAttribute('data-theme', themeName);
+        document.head.appendChild(themeLink);
+        
+        // Store theme preference
+        localStorage.setItem('app-generator-theme', themeName);
+    },
+    getCurrentTheme(): string {
+        return localStorage.getItem('app-generator-theme') || 'arya-blue';
+    },
+    initTheme() {
+        const savedTheme = config.getCurrentTheme();
+        config.setTheme(savedTheme);
     },
     // localeMoment() {
     //     moment().locale('pt');

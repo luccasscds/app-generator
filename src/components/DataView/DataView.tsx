@@ -33,6 +33,7 @@ interface IOptions {
     totalItems?: number;
     emptyMessage?: string;
     loadingIcon?: ReactNode;
+    style?: React.CSSProperties;
 };
 export function DataView({
     items,
@@ -45,6 +46,7 @@ export function DataView({
     totalItems,
     emptyMessage = 'Nenhum item encontrado',
     loadingIcon,
+    style,
 }: IOptions) {
     const [loading, setLoading] = useState(false);
     const [totalRecords, setTotalRecords] = useState(0);
@@ -77,6 +79,7 @@ export function DataView({
                 setTotalRecords(totalItems || _.first(result)?._count || result?.length || 0);
             } else if (_.isArray(items)) {
                 setData(items);
+                setTotalRecords(totalItems || _.first(items)?._count || items?.length || 0);
             } else {
                 setData([]);
             }
@@ -117,6 +120,7 @@ export function DataView({
             emptyMessage={emptyMessage}
             onPage={onPage}
             loadingIcon={loadingIcon}
+            style={style}
         />
     );
 }

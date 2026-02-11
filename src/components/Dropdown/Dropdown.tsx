@@ -47,6 +47,7 @@ interface IOptions {
      * Se você estiver usando lazy, a função `filtro` deve retornar um objeto com as propriedades `first`, `rows` e `filter`.
      */
     lazy?: boolean;
+    style?: React.CSSProperties;
 };
 export function Dropdown({
     placeholder = "...",
@@ -66,6 +67,7 @@ export function Dropdown({
     showClear,
     totalItems,
     lazy = false,
+    style,
 }: IOptions) {
     const limitData = 10;
     const defaultLazyState: ILazyState = {
@@ -196,6 +198,7 @@ export function Dropdown({
             showFilterClear={showFilterClear}
             showClear={showClear}
             loading={loading}
+            style={style}
         />
     )
 }

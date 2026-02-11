@@ -1,9 +1,11 @@
+import { Accordion } from 'primereact/accordion';
+import { AccordionTab } from 'primereact/accordion';
 import { Avatar } from 'primereact/avatar';
 import { AvatarGroup } from 'primereact/avatargroup';
 import { Badge } from 'primereact/badge';
+import { BreadCrumb } from 'primereact/breadcrumb';
 import { Card } from 'primereact/card';
 import { Carousel } from 'primereact/carousel';
-import { ChangeEventHandler } from 'react';
 import { ColumnBodyOptions } from 'primereact/column';
 import { ConfirmDialog } from 'primereact/confirmdialog';
 import { CSSProperties } from 'react';
@@ -11,8 +13,17 @@ import { default as default_2 } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { FormEvent } from 'primereact/ts-helpers';
+import { Image as Image_2 } from 'primereact/image';
+import { InputIcon } from 'primereact/inputicon';
+import { InputMask } from 'primereact/inputmask';
+import { InputNumber } from 'primereact/inputnumber';
+import { InputOtp } from 'primereact/inputotp';
+import { InputText } from 'primereact/inputtext';
+import { InputTextarea } from 'primereact/inputtextarea';
 import { JSX } from 'react/jsx-runtime';
-import { MenuItem } from 'primereact/menuitem';
+import { Menu } from 'primereact/menu';
+import { Password } from 'primereact/password';
+import * as PrimeReact from 'primereact/button';
 import * as primereact from 'primereact/checkbox';
 import * as primereact_2 from 'primereact/inputswitch';
 import * as primereact_3 from 'primereact/radiobutton';
@@ -20,11 +31,17 @@ import { ProgressBar } from 'primereact/progressbar';
 import { ProgressSpinner } from 'primereact/progressspinner';
 import { ReactNode } from 'react';
 import { SelectButton } from 'primereact/selectbutton';
+import { Sidebar } from 'primereact/sidebar';
 import { Skeleton } from 'primereact/skeleton';
 import { SyntheticEvent } from 'react';
 import { Tag } from 'primereact/tag';
 import { Toast } from 'primereact/toast';
+import { Toolbar } from 'primereact/toolbar';
 import { z } from 'zod';
+
+export { Accordion }
+
+export { AccordionTab }
 
 export { Avatar }
 
@@ -42,7 +59,9 @@ export declare interface BlockquoteProps extends default_2.BlockquoteHTMLAttribu
     author?: string;
 }
 
-export declare function Button({ label, onPress, disabled, style, showLoading, showRequireConfirmation, className, icon, iconPos, type }: IOptions_3): JSX.Element;
+export { BreadCrumb }
+
+export declare function Button(options: IOptions_3): JSX.Element;
 
 export declare function Calendar({ text, value, placeholder, dateFormat, onChange, showIcon, view, showButtonBar, style, minDate, maxDate, readOnlyInput, showTime, timeOnly, hourFormat, disabledDays, disabledDates, disabled, }: IOptions_4): JSX.Element;
 
@@ -65,6 +84,9 @@ export declare interface CodeProps extends default_2.HTMLAttributes<HTMLElement>
 
 export declare const config: {
     init(): void;
+    setTheme(themeName?: string): void;
+    getCurrentTheme(): string;
+    initTheme(): void;
     localePrimeReact(): void;
     zod(): void;
 };
@@ -73,14 +95,14 @@ export { ConfirmDialog }
 
 export declare function DataTable({ onPress, data, columns, lazy, totalItems, removableSort }: IOptions): JSX.Element;
 
-declare function DataView_2({ items, layout, header, itemTemplate, lazy, paginator, paginatorPosition, totalItems, emptyMessage, loadingIcon, }: IOptions_2): JSX.Element;
+declare function DataView_2({ items, layout, header, itemTemplate, lazy, paginator, paginatorPosition, totalItems, emptyMessage, loadingIcon, style, }: IOptions_2): JSX.Element;
 export { DataView_2 as DataView }
 
 export { Dialog }
 
 export { Divider }
 
-export declare function Dropdown({ placeholder, title, selected, options, optionLabel, optionValue, disabled, readOnly, required, onSelect, filter, emptyMessage, emptyFilterMessage, showFilterClear, showClear, totalItems, lazy, }: IOptions_5): JSX.Element;
+export declare function Dropdown({ placeholder, title, selected, options, optionLabel, optionValue, disabled, readOnly, required, onSelect, filter, emptyMessage, emptyFilterMessage, showFilterClear, showClear, totalItems, lazy, style, }: IOptions_5): JSX.Element;
 
 export declare const H1: default_2.FC<Omit<HeadingProps, 'level'>>;
 
@@ -95,11 +117,11 @@ export declare const H5: default_2.FC<Omit<HeadingProps, 'level'>>;
 export declare const H6: default_2.FC<Omit<HeadingProps, 'level'>>;
 
 export declare function handleError(error: any): {
-    message: string;
-    stack: string | undefined;
-} | {
     message: any;
     stack?: undefined;
+} | {
+    message: string;
+    stack: string | undefined;
 };
 
 export declare const handleZod: {
@@ -121,7 +143,6 @@ export declare const handleZod: {
     prettifyError: typeof z.core.prettifyError;
     formatError: typeof z.core.formatError;
     flattenError: typeof z.core.flattenError;
-    toJSONSchema: typeof z.core.toJSONSchema;
     TimePrecision: {
         readonly Any: null;
         readonly Minute: -1;
@@ -129,7 +150,10 @@ export declare const handleZod: {
         readonly Millisecond: 3;
         readonly Microsecond: 6;
     };
+    util: typeof z.core.util;
     NEVER: never;
+    toJSONSchema: typeof z.core.toJSONSchema;
+    fromJSONSchema: typeof z.fromJSONSchema;
     locales: typeof z.core.locales;
     ZodISODateTime: z.core.$constructor<z.ZodISODateTime, z.core.$ZodISODateTimeDef>;
     ZodISODate: z.core.$constructor<z.ZodISODate, z.core.$ZodStringFormatDef<"date">>;
@@ -155,6 +179,7 @@ export declare const handleZod: {
     xid(params?: string | z.core.$ZodXIDParams): z.ZodXID;
     ksuid(params?: string | z.core.$ZodKSUIDParams): z.ZodKSUID;
     ipv4(params?: string | z.core.$ZodIPv4Params): z.ZodIPv4;
+    mac(params?: string | z.core.$ZodMACParams): z.ZodMAC;
     ipv6(params?: string | z.core.$ZodIPv6Params): z.ZodIPv6;
     cidrv4(params?: string | z.core.$ZodCIDRv4Params): z.ZodCIDRv4;
     cidrv6(params?: string | z.core.$ZodCIDRv6Params): z.ZodCIDRv6;
@@ -188,6 +213,7 @@ export declare const handleZod: {
     strictObject<T extends z.core.$ZodLooseShape>(shape: T, params?: string | z.core.$ZodObjectParams): z.ZodObject<T, z.core.$strict>;
     looseObject<T extends z.core.$ZodLooseShape>(shape: T, params?: string | z.core.$ZodObjectParams): z.ZodObject<T, z.core.$loose>;
     union<const T extends readonly z.core.SomeType[]>(options: T, params?: string | z.core.$ZodUnionParams): z.ZodUnion<T>;
+    xor<const T extends readonly z.core.SomeType[]>(options: T, params?: string | z.core.$ZodXorParams): z.ZodXor<T>;
     discriminatedUnion<Types extends readonly [z.core.$ZodTypeDiscriminable, ...z.core.$ZodTypeDiscriminable[]], Disc extends string>(discriminator: Disc, options: Types, params?: string | z.core.$ZodDiscriminatedUnionParams): z.ZodDiscriminatedUnion<Types, Disc>;
     intersection<T extends z.core.SomeType, U extends z.core.SomeType>(left: T, right: U): z.ZodIntersection<T, U>;
     tuple<T extends readonly [z.core.SomeType, ...z.core.SomeType[]]>(items: T, params?: string | z.core.$ZodTupleParams): z.ZodTuple<T, null>;
@@ -195,6 +221,7 @@ export declare const handleZod: {
     tuple(items: [], params?: string | z.core.$ZodTupleParams): z.ZodTuple<[], null>;
     record<Key extends z.core.$ZodRecordKey, Value extends z.core.SomeType>(keyType: Key, valueType: Value, params?: string | z.core.$ZodRecordParams): z.ZodRecord<Key, Value>;
     partialRecord<Key extends z.core.$ZodRecordKey, Value extends z.core.SomeType>(keyType: Key, valueType: Value, params?: string | z.core.$ZodRecordParams): z.ZodRecord<Key & z.core.$partial, Value>;
+    looseRecord<Key extends z.core.$ZodRecordKey, Value extends z.core.SomeType>(keyType: Key, valueType: Value, params?: string | z.core.$ZodRecordParams): z.ZodRecord<Key, Value>;
     map<Key extends z.core.SomeType, Value extends z.core.SomeType>(keyType: Key, valueType: Value, params?: string | z.core.$ZodMapParams): z.ZodMap<Key, Value>;
     set<Value extends z.core.SomeType>(valueType: Value, params?: string | z.core.$ZodSetParams): z.ZodSet<Value>;
     nativeEnum<T extends z.core.util.EnumLike>(entries: T, params?: string | z.core.$ZodEnumParams): z.ZodEnum<T>;
@@ -203,6 +230,7 @@ export declare const handleZod: {
     file(params?: string | z.core.$ZodFileParams): z.ZodFile;
     transform<I = unknown, O = I>(fn: (input: I, ctx: z.core.ParsePayload) => O): z.ZodTransform<Awaited<O>, I>;
     optional<T extends z.core.SomeType>(innerType: T): z.ZodOptional<T>;
+    exactOptional<T extends z.core.SomeType>(innerType: T): z.ZodExactOptional<T>;
     nullable<T extends z.core.SomeType>(innerType: T): z.ZodNullable<T>;
     nullish<T extends z.core.SomeType>(innerType: T): z.ZodOptional<z.ZodNullable<T>>;
     _default<T extends z.core.SomeType>(innerType: T, defaultValue: z.core.util.NoUndefined<z.core.output<T>> | (() => z.core.util.NoUndefined<z.core.output<T>>)): z.ZodDefault<T>;
@@ -212,18 +240,18 @@ export declare const handleZod: {
     nan(params?: string | z.core.$ZodNaNParams): z.ZodNaN;
     pipe<const A extends z.core.SomeType, B extends z.core.$ZodType<unknown, z.core.output<A>> = z.core.$ZodType<unknown, z.core.output<A>, z.core.$ZodTypeInternals<unknown, z.core.output<A>>>>(in_: A, out: B | z.core.$ZodType<unknown, z.core.output<A>>): z.ZodPipe<A, B>;
     codec<const A extends z.core.SomeType, B extends z.core.SomeType = z.core.$ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>>(in_: A, out: B, params: {
-        decode: (value: z.core.output<A>, payload: z.core.ParsePayload<z.core.output<A>>) => z.core.input<B>;
-        encode: (value: z.core.input<B>, payload: z.core.ParsePayload<z.core.input<B>>) => z.core.output<A>;
+        decode: (value: z.core.output<A>, payload: z.core.ParsePayload<z.core.output<A>>) => z.core.util.MaybeAsync<z.core.input<B>>;
+        encode: (value: z.core.input<B>, payload: z.core.ParsePayload<z.core.input<B>>) => z.core.util.MaybeAsync<z.core.output<A>>;
     }): z.ZodCodec<A, B>;
     readonly<T extends z.core.SomeType>(innerType: T): z.ZodReadonly<T>;
     templateLiteral<const Parts extends z.core.$ZodTemplateLiteralPart[]>(parts: Parts, params?: string | z.core.$ZodTemplateLiteralParams): z.ZodTemplateLiteral<z.core.$PartsToTemplateLiteral<Parts>>;
     lazy<T extends z.core.SomeType>(getter: () => T): z.ZodLazy<T>;
     promise<T extends z.core.SomeType>(innerType: T): z.ZodPromise<T>;
     _function(): z.ZodFunction;
-    _function<const In extends Array<z.core.$ZodType> = z.core.$ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>[]>(params: {
+    _function<const In extends ReadonlyArray<z.core.$ZodType>>(params: {
         input: In;
     }): z.ZodFunction<z.ZodTuple<In, null>, z.core.$ZodFunctionOut>;
-    _function<const In extends Array<z.core.$ZodType> = z.core.$ZodType<unknown, unknown, z.core.$ZodTypeInternals<unknown, unknown>>[], const Out extends z.core.$ZodFunctionOut = z.core.$ZodFunctionOut>(params: {
+    _function<const In extends ReadonlyArray<z.core.$ZodType>, const Out extends z.core.$ZodFunctionOut = z.core.$ZodFunctionOut>(params: {
         input: In;
         output: Out;
     }): z.ZodFunction<z.ZodTuple<In, null>, Out>;
@@ -259,6 +287,7 @@ export declare const handleZod: {
     ZodXID: z.core.$constructor<z.ZodXID>;
     ZodKSUID: z.core.$constructor<z.ZodKSUID>;
     ZodIPv4: z.core.$constructor<z.ZodIPv4>;
+    ZodMAC: z.core.$constructor<z.ZodMAC>;
     ZodIPv6: z.core.$constructor<z.ZodIPv6>;
     ZodCIDRv4: z.core.$constructor<z.ZodCIDRv4>;
     ZodCIDRv6: z.core.$constructor<z.ZodCIDRv6>;
@@ -286,6 +315,7 @@ export declare const handleZod: {
     ZodArray: z.core.$constructor<z.ZodArray>;
     ZodObject: z.core.$constructor<z.ZodObject>;
     ZodUnion: z.core.$constructor<z.ZodUnion>;
+    ZodXor: z.core.$constructor<z.ZodXor>;
     ZodDiscriminatedUnion: z.core.$constructor<z.ZodDiscriminatedUnion>;
     ZodIntersection: z.core.$constructor<z.ZodIntersection>;
     ZodTuple: z.core.$constructor<z.ZodTuple>;
@@ -298,6 +328,7 @@ export declare const handleZod: {
     ZodFile: z.core.$constructor<z.ZodFile>;
     ZodTransform: z.core.$constructor<z.ZodTransform>;
     ZodOptional: z.core.$constructor<z.ZodOptional>;
+    ZodExactOptional: z.core.$constructor<z.ZodExactOptional>;
     ZodNullable: z.core.$constructor<z.ZodNullable>;
     ZodDefault: z.core.$constructor<z.ZodDefault>;
     ZodPrefault: z.core.$constructor<z.ZodPrefault>;
@@ -315,6 +346,8 @@ export declare const handleZod: {
     ZodFunction: z.core.$constructor<z.ZodFunction>;
     function: typeof z._function;
     ZodCustom: z.core.$constructor<z.ZodCustom>;
+    describe: typeof z.core.describe;
+    meta: typeof z.core.meta;
     instanceof: typeof z.instanceof;
     stringbool: (_params?: string | z.core.$ZodStringBoolParams) => z.ZodCodec<z.ZodString, z.ZodBoolean>;
     lt: typeof z.core._lt;
@@ -345,6 +378,7 @@ export declare const handleZod: {
     trim: typeof z.core._trim;
     toLowerCase: typeof z.core._toLowerCase;
     toUpperCase: typeof z.core._toUpperCase;
+    slugify: typeof z.core._slugify;
     ZodError: z.core.$constructor<z.ZodError>;
     ZodRealError: z.core.$constructor<z.ZodError>;
     parse: <T extends z.core.$ZodType>(schema: T, value: unknown, _ctx?: z.core.ParseContext<z.core.$ZodIssue>, _params?: {
@@ -420,41 +454,23 @@ declare interface ILazyState_3 {
     filter?: string;
 }
 
+export { Image_2 as Image }
+
 export declare const InlineCode: default_2.FC<Omit<CodeProps, 'variant'>>;
 
-export declare function Input({ id, label, value, name, inputMode, placeholder, disabled, maxLength, readOnly, style, size, ref, required, onChange, password, feedback, toggleMask }: IOption_2): JSX.Element;
+export { InputIcon }
+
+export { InputMask }
+
+export { InputNumber }
+
+export { InputOtp }
 
 export declare function InputSwitch({ text, checked, disabled, style, onChange, className, required, readOnly, }: IOptions_7): JSX.Element;
 
-export declare function InputTextarea({ text, rows, cols, value, disabled, style, className, required, readOnly, autoResize, onChange, }: IOptions_8): JSX.Element;
+export { InputText }
 
-declare interface IOption {
-    model: MenuItem[];
-    user?: {
-        image?: string;
-        name?: string;
-    };
-}
-
-declare interface IOption_2 {
-    id?: string;
-    label?: string;
-    value?: string;
-    name?: string;
-    inputMode?: "none" | "text" | "tel" | "url" | "email" | "numeric" | "decimal" | "search" | undefined;
-    placeholder?: string;
-    disabled?: boolean;
-    maxLength?: number;
-    readOnly?: boolean;
-    style?: CSSProperties;
-    size?: string | number;
-    ref?: any;
-    required?: boolean;
-    onChange?: ChangeEventHandler<HTMLInputElement>;
-    password?: boolean;
-    feedback?: boolean;
-    toggleMask?: boolean;
-}
+export { InputTextarea }
 
 declare interface IOptions {
     /**
@@ -513,19 +529,14 @@ declare interface IOptions_2 {
     totalItems?: number;
     emptyMessage?: string;
     loadingIcon?: ReactNode;
+    style?: React.CSSProperties;
 }
 
-declare interface IOptions_3 {
-    label?: string | any;
+declare interface IOptions_3 extends PrimeReact.ButtonProps {
     onPress?: () => void;
-    disabled?: boolean;
     style?: CSSProperties;
     showLoading?: boolean;
     showRequireConfirmation?: boolean;
-    className?: string;
-    icon?: string;
-    iconPos?: "left" | "right" | "bottom" | "top";
-    type?: "submit" | "reset" | "button";
 }
 
 declare interface IOptions_4 {
@@ -592,6 +603,7 @@ declare interface IOptions_5 {
      * Se você estiver usando lazy, a função `filtro` deve retornar um objeto com as propriedades `first`, `rows` e `filter`.
      */
     lazy?: boolean;
+    style?: React.CSSProperties;
 }
 
 declare interface IOptions_6 {
@@ -618,20 +630,6 @@ declare interface IOptions_7 {
 }
 
 declare interface IOptions_8 {
-    text?: string;
-    rows?: number;
-    cols?: number;
-    value?: string;
-    disabled?: boolean;
-    style?: CSSProperties;
-    className?: string;
-    required?: boolean;
-    readOnly?: boolean;
-    autoResize?: boolean;
-    onChange?: ChangeEventHandler<HTMLTextAreaElement>;
-}
-
-declare interface IOptions_9 {
     text: string;
     checked: boolean;
     onChange?: (event: primereact_3.RadioButtonChangeEvent) => void;
@@ -666,17 +664,21 @@ export declare interface LinkProps extends default_2.AnchorHTMLAttributes<HTMLAn
     external?: boolean;
 }
 
-export declare function MenuBar({ model, user }: IOption): JSX.Element | null;
+export { Menu }
 
 export declare const Paragraph: default_2.FC<Omit<TextProps, 'as'>>;
+
+export { Password }
 
 export { ProgressBar }
 
 export { ProgressSpinner }
 
-export declare function RadioButton({ text, checked, onChange, disabled, style, className, required, readOnly, tooltip, name, id, }: IOptions_9): JSX.Element;
+export declare function RadioButton({ text, checked, onChange, disabled, style, className, required, readOnly, tooltip, name, id, }: IOptions_8): JSX.Element;
 
 export { SelectButton }
+
+export { Sidebar }
 
 export { Skeleton }
 
@@ -696,7 +698,15 @@ export declare interface TextProps extends default_2.HTMLAttributes<HTMLParagrap
     as?: 'p' | 'span' | 'div';
 }
 
+export declare function ThemeSelector({ className }: ThemeSelectorProps): JSX.Element;
+
+declare interface ThemeSelectorProps {
+    className?: string;
+}
+
 export { Toast }
+
+export { Toolbar }
 
 export declare const TypographyExample: default_2.FC;
 

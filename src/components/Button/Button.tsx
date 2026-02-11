@@ -2,50 +2,45 @@ import * as PrimeReact from "primereact/button";
 import { useState, type CSSProperties } from "react";
 import { ConfirmDialog } from "primereact/confirmdialog";
 
-interface IOptions {
-    label?: string | any,
+interface IOptions extends PrimeReact.ButtonProps {
     onPress?: () => void,
-    disabled?: boolean,
     style?: CSSProperties,
     showLoading?: boolean,
     showRequireConfirmation?: boolean,
-    className?: string;
-    icon?: string;
-    iconPos?: "left" | "right" | "bottom" | "top";
-    type?: "submit" | "reset" | "button";
 };
 
-export function Button({ label, onPress, disabled = false, style = {}, showLoading = true, showRequireConfirmation = false, className, icon, iconPos, type }: IOptions) {
+export function Button(options: IOptions) {
     const [ loading, setLoading ] = useState(false);
     const [visibleModal, setVisibleModal] = useState(false);
     async function onPressClick() {
         try {
-            if(showRequireConfirmation && !visibleModal) {
+            if(options.showRequireConfirmation && !visibleModal) {
                 setVisibleModal(true);
                 return;
             };
-            if(showLoading) await setLoading(true);
+            if(options.showLoading) await setLoading(true);
     
-            if(onPress) await onPress();
+            if(options.onPress) await options.onPress();
         } catch (error) {
             console.error(error); // temp
         } finally {
-            if(showLoading) await setLoading(false);
+            if(options.showLoading) await setLoading(false);
         }
     };
 
     return (
         <>
             <PrimeReact.Button
-                label={label}
-                style={{...style, opacity: disabled ? 0.5 : undefined}}
+                {...options}
+                // label={label}
+                style={{...options.style, opacity: options.disabled ? 0.5 : undefined}}
                 onClick={onPressClick}
                 loading={loading}
-                className={className}
-                icon={icon}
-                iconPos={iconPos}
-                type={type}
-                disabled={disabled}
+                // className={className}
+                // icon={icon}
+                // iconPos={iconPos}
+                // type={type}
+                // disabled={disabled}
             />
 
             <ConfirmDialog

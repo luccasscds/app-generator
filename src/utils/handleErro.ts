@@ -3,7 +3,9 @@ import { ZodError } from "zod";
 
 export function handleError(error: any) {
     console.error("handleError:", error);
-    if (error instanceof ZodError) {
+    if (error && _.has(error, 'response')) {
+        return { message: error.response?.data?.message };
+    } else if (error instanceof ZodError) {
         return { message: _.first(error.issues)?.message };
     } else if (error instanceof Error) {
         return { message: error.message, stack: error.stack };

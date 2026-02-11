@@ -52,7 +52,10 @@ export default defineConfig(({ mode }) => {
 
   // Configuração para desenvolvimento/build normal
   return {
-    plugins: [TanStackRouterVite({ autoCodeSplitting: true }), viteReact()],
+    plugins: [
+      TanStackRouterVite({ autoCodeSplitting: true }),
+      viteReact()
+    ],
     test: {
       globals: true,
       environment: 'jsdom',
