@@ -20,7 +20,7 @@ jobs:
         with:
           # Usar o token com permissões de escrita
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 0  # Necessário para o semantic-release
+          fetch-depth: 0 # Necessário para o semantic-release obter o histórico completo de commits
       
       - name: Configurar Node.js
         uses: actions/setup-node@v4
@@ -37,6 +37,12 @@ jobs:
         run: npm run build:lib
         
       - name: Executar release
-        run: npm run release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/npm
+            @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

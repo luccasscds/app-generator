@@ -27,9 +27,7 @@
     "build:lib": "vite build --mode lib",
     "serve": "vite preview",
     "test": "vitest run",
-    "prepare": "husky",
-    "release": "semantic-release --no-ci",
-    "release:dry": "semantic-release --dry-run"
+    "prepare": "husky"
   },
   "peerDependencies": {
     "@tanstack/react-router": "^1.157.18",
@@ -51,8 +49,6 @@
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^10.0.1",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.8.0",
     "@testing-library/react": "^16.2.0",
@@ -64,7 +60,6 @@
     "@vitejs/plugin-react": "^4.7.0",
     "husky": "^9.1.7",
     "jsdom": "^26.1.0",
-    "semantic-release": "^25.0.3",
     "typescript": "^5.9.3",
     "vite": "^6.4.1",
     "vite-plugin-dts": "^4.5.4",
