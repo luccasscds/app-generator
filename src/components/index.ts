@@ -35,6 +35,8 @@ export { Password } from 'primereact/password';
 export { Accordion, AccordionTab } from 'primereact/accordion';
 export { BreadCrumb } from 'primereact/breadcrumb';
 export { Image } from 'primereact/image';
+export { ButtonGroup } from 'primereact/buttongroup';
+export { IconField } from 'primereact/iconfield';
 
 // Typography components
 export * from './Typography';
