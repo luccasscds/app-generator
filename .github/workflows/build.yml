@@ -47,6 +47,12 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Obter última tag
+        id: get_tag
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+
       - name: Compactar arquivos do dist
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         run: |
@@ -57,5 +63,6 @@ jobs:
         uses: softprops/action-gh-release@v1
         with:
           files: dist.zip
+          tag_name: ${{ steps.get_tag.outputs.tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
