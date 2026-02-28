@@ -46,3 +46,16 @@ jobs:
             @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Compactar arquivos do dist
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        run: |
+          zip -r dist.zip dist
+
+      - name: Anexar dist.zip ao último release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dist.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
