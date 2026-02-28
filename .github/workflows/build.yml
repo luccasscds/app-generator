@@ -36,6 +36,9 @@ jobs:
       - name: Build do projeto
         run: npm run build:lib
         
+      - name: Compactar arquivos do dist
+        run: zip -r dist.zip dist
+
       - name: Executar release
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
         uses: cycjimmy/semantic-release-action@v4
@@ -49,17 +52,9 @@ jobs:
 
       - name: Obter última tag
         id: get_tag
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: |
-          echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
+        run: echo "tag=$(git describe --tags --abbrev=0)" >> $GITHUB_OUTPUT
 
-      - name: Compactar arquivos do dist
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        run: |
-          zip -r dist.zip dist
-
-      - name: Anexar dist.zip ao último release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+      - name: Anexar dist.zip ao release
         uses: softprops/action-gh-release@v1
         with:
           files: dist.zip
