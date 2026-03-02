@@ -39,6 +39,7 @@ export function ThemeSelector({ className }: ThemeSelectorProps) {
         severity="secondary"
         text
         onClick={(e) => menuRef.current?.toggle(e)}
+        style={{ width: 'auto' }}
       />
       <Menu model={themeItems} popup ref={menuRef} />
     </div>
