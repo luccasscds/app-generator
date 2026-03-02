@@ -35,6 +35,9 @@ import { ReactNode } from 'react';
 import { SelectButton } from 'primereact/selectbutton';
 import { Sidebar } from 'primereact/sidebar';
 import { Skeleton } from 'primereact/skeleton';
+import { Stepper } from 'primereact/stepper';
+import { StepperPanel } from 'primereact/stepperpanel';
+import { Steps } from 'primereact/steps';
 import { SyntheticEvent } from 'react';
 import { Tag } from 'primereact/tag';
 import { Toast } from 'primereact/toast';
@@ -689,6 +692,12 @@ export { Sidebar }
 export { Skeleton }
 
 export declare const Span: default_2.FC<Omit<TextProps, 'as'>>;
+
+export { Stepper }
+
+export { StepperPanel }
+
+export { Steps }
 
 export { Tag }
 

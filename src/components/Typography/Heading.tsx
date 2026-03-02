@@ -22,12 +22,12 @@ export const Heading: React.FC<HeadingProps> = ({
 }) => {
   // Tamanhos padrão baseados no nível
   const defaultSizes = {
-    1: '2.5rem',
-    2: '2rem',
-    3: '1.75rem',
-    4: '1.5rem',
-    5: '1.25rem',
-    6: '1rem',
+    1: 'clamp(2.5rem, 5vw, 4rem)',
+    2: 'clamp(2rem, 3.5vw, 3.5rem)',
+    3: 'clamp(1.75rem, 3vw, 2rem)',
+    4: 'clamp(1.5rem, 3.5vw, 2.5rem)',
+    5: 'clamp(1.25rem, 2vw, 2rem)',
+    6: 'clamp(1rem, 1.5vw, 1.5rem)',
   };
 
   // Tamanhos customizados

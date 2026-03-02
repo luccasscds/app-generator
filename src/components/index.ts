@@ -37,6 +37,9 @@ export { BreadCrumb } from 'primereact/breadcrumb';
 export { Image } from 'primereact/image';
 export { ButtonGroup } from 'primereact/buttongroup';
 export { IconField } from 'primereact/iconfield';
+export { Stepper } from 'primereact/stepper';
+export { StepperPanel } from 'primereact/stepperpanel';
+export { Steps } from 'primereact/steps';
 
 // Typography components
 export * from './Typography';
