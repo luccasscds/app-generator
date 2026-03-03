@@ -28,13 +28,13 @@ jobs:
           node-version: '20.19.5'
       
       - name: Instalar dependências
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Testes
-        run: npm test
+        run: bun run test
       
       - name: Build do projeto
-        run: npm run build:lib
+        run: bun run build:lib
         
       - name: Compactar arquivos do dist
         run: zip -r dist.zip dist
