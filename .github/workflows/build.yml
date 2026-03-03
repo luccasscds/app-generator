@@ -27,6 +27,11 @@ jobs:
         with:
           node-version: '20.19.5'
       
+      - name: Instalar Bun
+        run: |
+          curl -fsSL https://bun.sh/install | bash
+          echo "$HOME/.bun/bin" >> $GITHUB_PATH
+      
       - name: Instalar dependências
         run: bun install --frozen-lockfile
 
