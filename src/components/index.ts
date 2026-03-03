@@ -6,6 +6,7 @@ export { Dropdown } from './Dropdown/Dropdown';
 export { Checkbox } from './Checkbox/Checkbox';
 export { InputSwitch } from './InputSwitch/InputSwitch';
 export { RadioButton } from './RadioButton/RadioButton';
+export { MenuBar } from './MenuBar/MenuBar';
 
 export { Card } from 'primereact/card';
 export { Divider } from 'primereact/divider';
