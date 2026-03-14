@@ -1,3 +1,10 @@
+# [0.3.0](https://github.com/luccasscds/app-generator/compare/v0.2.0...v0.3.0) (2026-03-14)
+
+
+### Features
+
+* adicionando componente Message ([1e16069](https://github.com/luccasscds/app-generator/commit/1e16069acc6ce2192722360475aff070995cef08))
+
 # [0.2.0](https://github.com/luccasscds/app-generator/compare/v0.1.0...v0.2.0) (2026-02-28)
 
 
