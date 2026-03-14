@@ -41,6 +41,7 @@ export { IconField } from 'primereact/iconfield';
 export { Stepper } from 'primereact/stepper';
 export { StepperPanel } from 'primereact/stepperpanel';
 export { Steps } from 'primereact/steps';
+export { Message } from 'primereact/message';
 
 // Typography components
 export * from './Typography';

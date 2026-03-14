@@ -24,6 +24,8 @@ import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { JSX } from 'react/jsx-runtime';
 import { Menu } from 'primereact/menu';
+import { MenuItem } from 'primereact/menuitem';
+import { Message } from 'primereact/message';
 import { Password } from 'primereact/password';
 import * as PrimeReact from 'primereact/button';
 import * as primereact from 'primereact/checkbox';
@@ -481,6 +483,14 @@ export { InputText }
 
 export { InputTextarea }
 
+declare interface IOption {
+    model: MenuItem[];
+    user?: {
+        image?: string;
+        name?: string;
+    };
+}
+
 declare interface IOptions {
     /**
      * Se você estiver usando lazy, passe uma função que retorna os dados.
@@ -674,6 +684,10 @@ export declare interface LinkProps extends default_2.AnchorHTMLAttributes<HTMLAn
 }
 
 export { Menu }
+
+export declare function MenuBar({ model, user }: IOption): JSX.Element | null;
+
+export { Message }
 
 export declare const Paragraph: default_2.FC<Omit<TextProps, 'as'>>;
 
