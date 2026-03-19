@@ -27,7 +27,7 @@
     "build:lib": "vite build --mode lib",
     "serve": "vite preview",
     "test": "vitest run",
-    "prepare": "husky"
+    "prepare": "if [ -z \"$CI\" ]; then husky; fi"
   },
   "peerDependencies": {
     "@tanstack/react-router": "^1.157.18",
