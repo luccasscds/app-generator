@@ -44,6 +44,7 @@ import { SyntheticEvent } from 'react';
 import { Tag } from 'primereact/tag';
 import { Toast } from 'primereact/toast';
 import { Toolbar } from 'primereact/toolbar';
+import { Tree } from 'primereact/tree';
 import { z } from 'zod';
 
 export { Accordion }
@@ -736,6 +737,8 @@ declare interface ThemeSelectorProps {
 export { Toast }
 
 export { Toolbar }
+
+export { Tree }
 
 export declare const TypographyExample: default_2.FC;
 
