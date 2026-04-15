@@ -1,3 +1,10 @@
+# [0.4.0](https://github.com/luccasscds/app-generator/compare/v0.3.0...v0.4.0) (2026-04-15)
+
+
+### Features
+
+* colocando componente tree no projeto ([7dc1303](https://github.com/luccasscds/app-generator/commit/7dc130322bec979fb83a9679e73773a7800a21e5))
+
 # [0.3.0](https://github.com/luccasscds/app-generator/compare/v0.2.0...v0.3.0) (2026-03-14)
 
 
