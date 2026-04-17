@@ -43,6 +43,7 @@ export { StepperPanel } from 'primereact/stepperpanel';
 export { Steps } from 'primereact/steps';
 export { Message } from 'primereact/message';
 export { Tree } from 'primereact/tree';
+export { FileUpload } from 'primereact/fileupload';
 
 // Typography components
 export * from './Typography';
