@@ -1,3 +1,10 @@
+# [0.5.0](https://github.com/luccasscds/app-generator/compare/v0.4.0...v0.5.0) (2026-04-17)
+
+
+### Features
+
+* colocando fileUpload no projeto ([530d4f3](https://github.com/luccasscds/app-generator/commit/530d4f3d3908b488b8a453c554dd942d618b1c6f))
+
 # [0.4.0](https://github.com/luccasscds/app-generator/compare/v0.3.0...v0.4.0) (2026-04-15)
 
 
