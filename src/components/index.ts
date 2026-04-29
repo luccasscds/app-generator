@@ -44,6 +44,7 @@ export { Steps } from 'primereact/steps';
 export { Message } from 'primereact/message';
 export { Tree } from 'primereact/tree';
 export { FileUpload } from 'primereact/fileupload';
+export { Galleria } from 'primereact/galleria';
 
 // Typography components
 export * from './Typography';
