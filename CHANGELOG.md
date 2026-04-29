@@ -1,3 +1,10 @@
+# [0.6.0](https://github.com/luccasscds/app-generator/compare/v0.5.0...v0.6.0) (2026-04-29)
+
+
+### Features
+
+* colocando Galleria no projeto ([e918df7](https://github.com/luccasscds/app-generator/commit/e918df72e9c1aabe87c0f7a7c3a53f808ae7644a))
+
 # [0.5.0](https://github.com/luccasscds/app-generator/compare/v0.4.0...v0.5.0) (2026-04-17)
 
 
