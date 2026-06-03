@@ -15,6 +15,7 @@ import { Dialog } from 'primereact/dialog';
 import { Divider } from 'primereact/divider';
 import { FileUpload } from 'primereact/fileupload';
 import { FormEvent } from 'primereact/ts-helpers';
+import { Galleria } from 'primereact/galleria';
 import { IconField } from 'primereact/iconfield';
 import { Image as Image_2 } from 'primereact/image';
 import { InputIcon } from 'primereact/inputicon';
@@ -116,6 +117,8 @@ export { Divider }
 export declare function Dropdown({ placeholder, title, selected, options, optionLabel, optionValue, disabled, readOnly, required, onSelect, filter, emptyMessage, emptyFilterMessage, showFilterClear, showClear, totalItems, lazy, style, }: IOptions_5): JSX.Element;
 
 export { FileUpload }
+
+export { Galleria }
 
 export declare const H1: default_2.FC<Omit<HeadingProps, 'level'>>;
 
