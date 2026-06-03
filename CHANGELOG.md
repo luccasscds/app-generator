@@ -1,3 +1,10 @@
+## [0.6.1](https://github.com/luccasscds/app-generator/compare/v0.6.0...v0.6.1) (2026-06-03)
+
+
+### Bug Fixes
+
+* faltou o restante dos arquivos da Galleria ([5a99a5c](https://github.com/luccasscds/app-generator/commit/5a99a5c30ff6761aa5fab2baf45027dc5808aa4d))
+
 # [0.6.0](https://github.com/luccasscds/app-generator/compare/v0.5.0...v0.6.0) (2026-04-29)
 
 
