@@ -3,12 +3,48 @@ import { useState, type CSSProperties } from "react";
 import { ConfirmDialog } from "primereact/confirmdialog";
 
 interface IOptions extends PrimeReact.ButtonProps {
-    onPress?: () => void,
-    style?: CSSProperties,
-    showLoading?: boolean,
-    showRequireConfirmation?: boolean,
+    /**
+     * Ação executada ao pressionar o botão.
+     * Pode ser assíncrona quando `showLoading` estiver habilitado.
+     */
+    onPress?: () => void | Promise<void>;
+
+    /**
+     * Estilos adicionais aplicados ao botão.
+     */
+    style?: CSSProperties;
+
+    /**
+     * Exibe o estado de carregamento enquanto `onPress` é executado.
+     *
+     * @default false
+     */
+    showLoading?: boolean;
+
+    /**
+     * Solicita confirmação antes de executar `onPress`.
+     *
+     * @default false
+     */
+    showRequireConfirmation?: boolean;
 };
 
+/**
+ * Botão baseado no PrimeReact com suporte a loading e confirmação.
+ *
+ * @example
+ * ```tsx
+ * <Button
+ *   label="Excluir"
+ *   severity="danger"
+ *   showLoading
+ *   showRequireConfirmation
+ *   onPress={async () => {
+ *     await deleteItem();
+ *   }}
+ * />
+ * ```
+ */
 export function Button(options: IOptions) {
     const [ loading, setLoading ] = useState(false);
     const [visibleModal, setVisibleModal] = useState(false);
