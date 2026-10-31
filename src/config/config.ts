@@ -1,4 +1,5 @@
 // import moment from "moment";
+import dayjs from "dayjs";
 import { addLocale, locale } from "primereact/api";
 import z from "zod";
 import { pt } from "zod/locales"
@@ -9,6 +10,7 @@ export const config = {
         // config.localeMoment();
         config.localePrimeReact();
         config.zod();
+        config.dayJs();
     },
     setTheme(themeName: string = 'arya-blue') {
         // Remove existing theme CSS if present
@@ -63,4 +65,7 @@ export const config = {
     zod() {
         z.config(pt());
     },
+    dayJs() {
+        dayjs.locale('pt-br');
+    }
 };

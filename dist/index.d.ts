@@ -71,6 +71,22 @@ export declare interface BlockquoteProps extends default_2.BlockquoteHTMLAttribu
 
 export { BreadCrumb }
 
+/**
+ * Botão baseado no PrimeReact com suporte a loading e confirmação.
+ *
+ * @example
+ * ```tsx
+ * <Button
+ *   label="Excluir"
+ *   severity="danger"
+ *   showLoading
+ *   showRequireConfirmation
+ *   onPress={async () => {
+ *     await deleteItem();
+ *   }}
+ * />
+ * ```
+ */
 export declare function Button(options: IOptions_3): JSX.Element;
 
 export { ButtonGroup }
@@ -101,6 +117,7 @@ export declare const config: {
     initTheme(): void;
     localePrimeReact(): void;
     zod(): void;
+    dayJs(): void;
 };
 
 export { ConfirmDialog }
@@ -559,9 +576,26 @@ declare interface IOptions_2 {
 }
 
 declare interface IOptions_3 extends PrimeReact.ButtonProps {
-    onPress?: () => void;
+    /**
+     * Ação executada ao pressionar o botão.
+     * Pode ser assíncrona quando `showLoading` estiver habilitado.
+     */
+    onPress?: () => void | Promise<void>;
+    /**
+     * Estilos adicionais aplicados ao botão.
+     */
     style?: CSSProperties;
+    /**
+     * Exibe o estado de carregamento enquanto `onPress` é executado.
+     *
+     * @default false
+     */
     showLoading?: boolean;
+    /**
+     * Solicita confirmação antes de executar `onPress`.
+     *
+     * @default false
+     */
     showRequireConfirmation?: boolean;
 }
 
